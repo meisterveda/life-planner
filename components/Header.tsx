@@ -2,9 +2,13 @@ import { useContext } from 'react'
 import Lifelogo from './Logo'
 import Link from 'next/link'
 import { UserContext } from '../lib/context'
+import { auth } from '../lib/firebase'
 
 function Header() {
     const { username, userId } = useContext(UserContext)
+    const signOut = () => {
+        auth.signOut()
+    }
 
     return (
         <nav className="bg-white border-2 border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
@@ -18,6 +22,14 @@ function Header() {
                     {/* user is signed-in and has userid */}
                     {userId && (
                         <div className="flex items-center md:order-2">
+                            <Link href="/dashboard" passHref>
+                                <button
+                                    type="button"
+                                    className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                >
+                                    Dashboard
+                                </button>
+                            </Link>
                             <button
                                 type="button"
                                 className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
@@ -39,48 +51,33 @@ function Header() {
                             >
                                 <div className="py-3 px-4">
                                     <span className="block text-sm text-gray-900 dark:text-white">
-                                        Bonnie Green
+                                        Name
                                     </span>
                                     <span className="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">
-                                        name@flowbite.com
+                                        Email
                                     </span>
                                 </div>
                                 <ul className="py-1" aria-labelledby="dropdown">
                                     <li>
-                                        <a
-                                            href="#"
-                                            className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                                        >
-                                            Dashboard
-                                        </a>
+                                        <Link href="/admin">
+                                            <a className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                                                Administration
+                                            </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a
-                                            href="#"
-                                            className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                                        >
-                                            Settings
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="#"
-                                            className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                                        >
-                                            Earnings
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="#"
-                                            className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                                        >
-                                            Sign out
-                                        </a>
+                                        <Link href="/">
+                                            <a
+                                                onClick={signOut}
+                                                className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                                            >
+                                                Sign out
+                                            </a>
+                                        </Link>
                                     </li>
                                 </ul>
                             </div>
-                            <button
+                            {/* <button
                                 data-collapse-toggle="mobile-menu-2"
                                 type="button"
                                 className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
@@ -112,7 +109,7 @@ function Header() {
                                         clipRule="evenodd"
                                     ></path>
                                 </svg>
-                            </button>
+                            </button> */}
                         </div>
                     )}
 
