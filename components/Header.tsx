@@ -38,11 +38,7 @@ function Header() {
                                 data-dropdown-toggle="dropdown"
                             >
                                 <span className="sr-only">Open user menu</span>
-                                <img
-                                    className="w-8 h-8 rounded-full"
-                                    src="/docs/images/people/profile-picture-3.jpg"
-                                    alt="user photo"
-                                ></img>
+                                Image
                             </button>
                             {/* Dropdown menu */}
                             <div
