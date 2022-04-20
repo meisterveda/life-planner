@@ -6,4 +6,14 @@ export default {
     component: Header,
 }
 
-export const Default = () => <Header />
+const Template = (args) => <Header {...args} />
+
+export const Default = Template.bind({})
+Default.args = {
+    userId: '1',
+}
+
+export const NotLoggedIn = Template.bind({})
+NotLoggedIn.args = {
+    userId: null,
+}
