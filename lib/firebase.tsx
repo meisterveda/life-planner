@@ -1,4 +1,7 @@
 import * as firebase from 'firebase/app'
+import { getAuth,  } from 'firebase/auth'
+import {getFirestore} from 'firebase/firestore'
+import {getStorage} from 'firebase/storage'
 
 const firebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_APIKEY,
@@ -15,3 +18,15 @@ if (!firebase.getApp.length) {
 }
 
 export const app = firebase.initializeApp(firebaseConfig)
+
+
+//Auth
+export const auth = getAuth(app)
+export const signInWithGoogle = ;
+
+//firestore
+export const firestore = getFirestore(app)
+
+
+//storage
+export const storage = getStorage(app)
