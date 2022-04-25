@@ -1,10 +1,11 @@
 import { useContext } from 'react'
 import Lifelogo from './Logo'
 import Link from 'next/link'
-import { UserContext } from '../lib/context'
+import { UserContext } from '../lib/Context'
 
 function Header() {
-    const { username, userId } = useContext(UserContext)
+    const { user, username } = useContext(UserContext)
+
     return (
         <nav className="bg-white border-2 border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
             <div className="container flex flex-wrap justify-between items-center mx-auto">
@@ -15,7 +16,7 @@ function Header() {
                 </Link>
                 <div className="flex md:order-2">
                     {/* user is signed-in and has userid */}
-                    {userId && (
+                    {username && (
                         <div className="flex items-center md:order-2">
                             <Link href="/dashboard" passHref>
                                 <button
@@ -105,7 +106,7 @@ function Header() {
                     )}
 
                     {/* user is not signed-in and doesn't userid */}
-                    {!userId && (
+                    {!username && (
                         <Link href="/login" passHref>
                             <button
                                 type="button"

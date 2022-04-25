@@ -10,7 +10,8 @@ import {
     ShoppingCartIcon,
 } from '@heroicons/react/outline'
 import Link from 'next/link'
-import React from 'react'
+import React, { useContext } from 'react'
+import { UserContext } from '../lib/Context'
 
 const sidebar = [
     { link: '/dashboard', label: 'Dashboard', icon: BellIcon },
@@ -25,6 +26,7 @@ const sidebar = [
 ]
 
 function Sidebar() {
+    const { user, username } = useContext(UserContext)
     const links = sidebar.map((item) => (
         <li key={item.label}>
             <Link key={item.label} href={item.link}>
@@ -36,11 +38,15 @@ function Sidebar() {
         </li>
     ))
     return (
-        <aside className="w-64" aria-label="Sidebar">
-            <div className="overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-gray-800">
-                <ul className="space-y-2">{links}</ul>
-            </div>
-        </aside>
+        <div>
+            {!user && (
+                <aside className="w-64" aria-label="Sidebar">
+                    <div className="overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-gray-800">
+                        <ul className="space-y-2">{links}</ul>
+                    </div>
+                </aside>
+            )}
+        </div>
     )
 }
 
