@@ -11,7 +11,7 @@ import {
 } from '@heroicons/react/outline'
 import Link from 'next/link'
 import React, { useContext } from 'react'
-import { UserContext } from '../lib/Context'
+import { useAuth } from '../lib/AuthUserContext'
 
 const sidebar = [
     { link: '/dashboard', label: 'Dashboard', icon: BellIcon },
@@ -26,7 +26,7 @@ const sidebar = [
 ]
 
 function Sidebar() {
-    const { user, username } = useContext(UserContext)
+    const { user } = useAuth()
     const links = sidebar.map((item) => (
         <li key={item.label}>
             <Link key={item.label} href={item.link}>
@@ -39,7 +39,7 @@ function Sidebar() {
     ))
     return (
         <div>
-            {!user && (
+            {user && (
                 <aside className="w-64" aria-label="Sidebar">
                     <div className="overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-gray-800">
                         <ul className="space-y-2">{links}</ul>

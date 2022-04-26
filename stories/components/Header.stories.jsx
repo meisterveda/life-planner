@@ -10,10 +10,10 @@ const Template = (args) => <Header {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-    userId: '1',
+    username: 'test',
 }
 
 export const NotLoggedIn = Template.bind({})
 NotLoggedIn.args = {
-    userId: null,
+    username: null,
 }
