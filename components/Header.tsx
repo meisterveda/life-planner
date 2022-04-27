@@ -1,15 +1,18 @@
 import { useContext, useEffect } from 'react'
 import Lifelogo from './Logo'
 import Link from 'next/link'
-import { useAuth } from '../lib/AuthUserContext'
+import { UserContext } from '../lib/userContext'
 import { useRouter } from 'next/router'
+import { SignOut } from '../lib/firebaseAuth'
 
 function SignOutButton() {
-    const { user, loading, SignOut } = useAuth()
+    const { user, loading } = useContext(UserContext)
     const router = useRouter()
 
     useEffect(() => {
-        if (!loading && !user) router.push('/')
+        if (!loading && !user) {
+            router.push('/')
+        }
     }, [user, loading])
 
     return (
@@ -23,8 +26,16 @@ function SignOutButton() {
     )
 }
 
+function IsAdmin() {
+    const { user } = useContext(UserContext)
+    if (user.admin) {
+        return true
+    }
+    return false
+}
+
 function Header() {
-    const { user, SignOut } = useAuth()
+    const { user } = useContext(UserContext)
 
     return (
         <nav className="bg-white border-2 border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
@@ -46,14 +57,25 @@ function Header() {
                                     Dashboard
                                 </button>
                             </Link>
-                            <Link href="/admin" passHref>
+                            <Link href="/settings" passHref>
                                 <button
                                     type="button"
                                     className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                                 >
-                                    Admin
+                                    Settings
                                 </button>
                             </Link>
+                            {/* {isAdmin && (
+                                <Link href="/admin" passHref>
+                                    <button
+                                        type="button"
+                                        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                    >
+                                        Admin
+                                    </button>
+                                </Link>
+                            )} */}
+
                             <SignOutButton />
                         </div>
                     )}

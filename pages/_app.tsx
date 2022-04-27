@@ -1,15 +1,17 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import Layout from '../components/Layout'
-import { AuthUserProvider } from '../lib/AuthUserContext'
+import { UserContext } from '../lib/userContext'
+import { useUserData } from '../lib/firebaseAuth'
 
 function MyApp({ Component, pageProps }: AppProps) {
+    const userData = useUserData()
     return (
-        <AuthUserProvider>
+        <UserContext.Provider value={userData}>
             <Layout>
                 <Component {...pageProps} />
             </Layout>
-        </AuthUserProvider>
+        </UserContext.Provider>
     )
 }
 

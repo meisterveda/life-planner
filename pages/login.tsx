@@ -1,12 +1,12 @@
-import { auth } from '../lib/firebase'
+import { auth } from '../lib/firebaseInit'
 import { signOut } from 'firebase/auth'
 import { useContext, useEffect } from 'react'
-import { useAuth } from '../lib/AuthUserContext'
+import { SignInWithGoogle, SignOut } from '../lib/firebaseAuth'
+import { UserContext } from '../lib/userContext'
 import { useRouter } from 'next/router'
 
 //Sign in with google button
 function SignInWithGoogleButton() {
-    const { SignInWithGoogle } = useAuth()
     return (
         <button
             type="button"
@@ -18,29 +18,19 @@ function SignInWithGoogleButton() {
     )
 }
 
-function SignOutButton() {
-    const { user, loading, SignOut } = useAuth()
+function login() {
+    const { user } = useContext(UserContext)
     const router = useRouter()
 
-    useEffect(() => {
-        if (!loading && !user) router.push('/')
-    }, [user, loading])
-
     return (
-        <button
-            type="button"
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            onClick={SignOut}
-        >
-            Sign Out
-        </button>
+        <main>
+            {user ? (
+                <div>Already Logged in, maybe go to Dashboard?</div>
+            ) : (
+                <SignInWithGoogleButton />
+            )}
+        </main>
     )
-}
-
-function login() {
-    const { user } = useAuth()
-
-    return <main>{user ? <SignOutButton /> : <SignInWithGoogleButton />}</main>
 }
 
 export default login
