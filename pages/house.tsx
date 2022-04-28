@@ -1,7 +1,7 @@
 import React from 'react'
 import Sidebar from '../components/Sidebar'
 
-function initial() {
+function house() {
     return (
         <main className="container flex items-start justify-between mx-auto">
             <div className="flex flex-col px-4 py-4 ">
@@ -17,4 +17,4 @@ function initial() {
     )
 }
 
-export default initial
+export default house

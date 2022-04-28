@@ -4,8 +4,8 @@ import Lifelogo from './Logo'
 
 function Footer() {
     return (
-        <footer className="p-4 bg-white sm:p-6 dark:bg-gray-800">
-            <div className="md:flex md:justify-between">
+        <footer className="container flex flex-col justify-between px-6 py-10 mx-auto bg-white">
+            <div className="flex items-center justify-between space-y-12">
                 <div className="mb-6 md:mb-0 flex items-center">
                     <Link href="/" passHref>
                         <a>
@@ -79,8 +79,8 @@ function Footer() {
                     </div>
                 </div>
             </div>
-            <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"></hr>
-            <div className="sm:flex sm:items-center sm:justify-between">
+            <div className="w-full border-t my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"></div>
+            <div className="flex justify-around space-x-32">
                 <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
                     © 2022{' '}
                     <a

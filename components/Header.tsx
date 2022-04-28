@@ -38,8 +38,8 @@ function Header() {
     const { user } = useContext(UserContext)
 
     return (
-        <nav className="bg-white border-2 border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
-            <div className="container flex flex-wrap justify-between items-center mx-auto">
+        <nav className="relative container mx-auto p-6">
+            <div className="flex justify-between items-center bg-white border-2 border-gray-200 sm:px-4 py-2.5 rounded dark:bg-gray-800">
                 <Link href="/">
                     <a>
                         <Lifelogo />
@@ -48,7 +48,7 @@ function Header() {
                 <div className="flex md:order-2">
                     {/* user is signed-in and has userid */}
                     {user && (
-                        <div className="flex items-center md:order-2">
+                        <div className="flex items-center space-x-3 md:order-2">
                             <Link href="/dashboard" passHref>
                                 <button
                                     type="button"
