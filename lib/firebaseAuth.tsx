@@ -1,5 +1,5 @@
 import { signInWithPopup, signOut } from 'firebase/auth'
-import { doc, getDoc, onSnapshot, setDoc, writeBatch } from 'firebase/firestore'
+import { doc, getDoc, setDoc } from 'firebase/firestore'
 import Router from 'next/router'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth, firestore, googleProvider } from './firebaseInit'
@@ -39,7 +39,9 @@ export const SignInWithGoogle = async () => {
 
 export const SignOut = () => {
     signOut(auth)
-        .then()
+        .then(() => {
+            Router.push('/')
+        })
         .catch((err) => {
             const errorMessage = err.message
             console.log(errorMessage)
