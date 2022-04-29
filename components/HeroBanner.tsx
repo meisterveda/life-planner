@@ -18,7 +18,7 @@ function HeroBanner({
     image,
 }: HeroProps) {
     return (
-        <div className="container px-6 py-4 mx-auto mb-8 lg:flex lg:h-128 lg:py-16 rounded-md bg-gradient-to-r from-white to-indigo-300">
+        <div className="container px-6 py-4 mx-auto mb-8 lg:flex lg:h-128 lg:py-16 ">
             <div className="container px-6 py-4 mx-auto lg:flex lg:h-96 lg:py-16 items-center">
                 <div className="flex flex-col items-center w-full lg:flex-row lg:w-1/2">
                     <div className="max-w-lg">
