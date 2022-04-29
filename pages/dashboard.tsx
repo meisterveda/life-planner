@@ -1,6 +1,3 @@
-import Image from 'next/image'
-import { userInfo } from 'os'
-import React from 'react'
 import Sidebar from '../components/Sidebar'
 
 function Dashboard({ user }) {
