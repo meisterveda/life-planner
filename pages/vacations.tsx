@@ -1,7 +1,7 @@
 import React from 'react'
 import Sidebar from '../components/Sidebar'
 
-function vacations() {
+function Vacations() {
     return (
         <main className="container flex items-start justify-between mx-auto">
             <div className="flex flex-col px-4 py-4 ">
@@ -17,4 +17,4 @@ function vacations() {
     )
 }
 
-export default vacations
+export default Vacations

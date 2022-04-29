@@ -1,6 +1,6 @@
 import React from 'react'
 
-function services() {
+function Services() {
     return (
         <main className="relative flex flex-col flex-grow justify-center">
             <div className="container px-6 py-4 mx-auto lg:flex lg:h-128 lg:py-16">
@@ -10,4 +10,4 @@ function services() {
     )
 }
 
-export default services
+export default Services

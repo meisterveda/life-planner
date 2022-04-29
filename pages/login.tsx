@@ -17,7 +17,7 @@ function SignInWithGoogleButton() {
     )
 }
 
-function login() {
+function Login() {
     const { user } = useContext(UserContext)
     const router = useRouter()
 
@@ -46,4 +46,4 @@ function login() {
     )
 }
 
-export default login
+export default Login

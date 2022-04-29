@@ -1,6 +1,6 @@
 import React from 'react'
 
-function settings() {
+function Settings() {
     return (
         <main className="relative flex flex-col flex-grow justify-center">
             <div className="container px-6 py-4 mx-auto lg:flex lg:h-128 lg:py-16">
@@ -10,4 +10,4 @@ function settings() {
     )
 }
 
-export default settings
+export default Settings
