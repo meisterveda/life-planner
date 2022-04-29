@@ -1,3 +1,4 @@
+import CTABanner from '../components/CTABanner'
 import FeatureBanner from '../components/FeatureBanner'
 import HeroBanner from '../components/HeroBanner'
 
@@ -45,7 +46,15 @@ function Home() {
                 }
                 features={features}
             />
-            <div className="container px-6 py-4 mx-auto lg:flex lg:h-128 lg:py-16 bg-indigo-500">
+            <CTABanner
+                title={'title'}
+                subtitle={'sub'}
+                firstlinktitle={'first'}
+                firstlinkurl={'first'}
+                secondlinktitle={'second'}
+                secondlinkurl={'second'}
+            />
+            <div className="container px-6 py-4 mx-auto lg:flex lg:h-128 lg:py-16 ">
                 Test
             </div>
         </main>

@@ -26,14 +26,6 @@ function SignOutButton() {
     )
 }
 
-function IsAdmin() {
-    const { user } = useContext(UserContext)
-    if (user.admin) {
-        return true
-    }
-    return false
-}
-
 function Header() {
     const { user } = useContext(UserContext)
 
