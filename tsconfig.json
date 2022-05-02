@@ -15,12 +15,6 @@
         "jsx": "preserve",
         "incremental": true
     },
-    "include": [
-        "next-env.d.ts",
-        "**/*.ts",
-        "**/*.tsx",
-        "lib/*.tsx",
-        "stories/components/Accordion.stories.jsx"
-    ],
+    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "lib/*.tsx"],
     "exclude": ["node_modules"]
 }
