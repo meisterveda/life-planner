@@ -6,7 +6,7 @@ function AuthCheck(props) {
     const { user } = useContext(UserContext)
 
     return user
-        ? props.childfren
+        ? props.children
         : props.fallback || <Link href="/login">You must be signed in.</Link>
 }
 
